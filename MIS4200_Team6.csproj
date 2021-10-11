@@ -244,6 +244,7 @@
     <Content Include="Views\UserData\Details.cshtml" />
     <Content Include="Views\UserData\Edit.cshtml" />
     <Content Include="Views\UserData\Index.cshtml" />
+    <Content Include="Views\UserData\duplicateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

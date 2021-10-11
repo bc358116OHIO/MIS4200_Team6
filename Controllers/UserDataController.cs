@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MIS4200_Team6.DAL;
 using MIS4200_Team6.Models;
 
@@ -51,9 +52,21 @@ namespace MIS4200_Team6.Controllers
         {
             if (ModelState.IsValid)
             {
-                userData.ID = Guid.NewGuid();
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userData.ID = memberID;
+                //userData.ID = Guid.NewGuid();
                 db.UserDatas.Add(userData);
+                try
+                {
                 db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    return View("duplicateUser");
+                    
+                }
+               
                 return RedirectToAction("Index");
             }
 
