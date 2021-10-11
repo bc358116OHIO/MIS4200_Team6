@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+box {
+    background-color: orange;
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    left: 20%;
+    top: 20%;
+}
