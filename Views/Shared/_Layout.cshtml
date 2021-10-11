@@ -17,12 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CENTRIC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="https://aspnet.cob.ohio.edu/MIS4200Team6">
+                   <img id="brand-image" alt="Centric Logo" src="https://centricconsulting.com/wp-content/themes/orbit-media/images/centric-logo.png" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Profile", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -42,3 +44,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
