@@ -7,11 +7,22 @@ namespace MIS4200_Team6.Migrations.MISContext
 
     internal sealed class Configuration : DbMigrationsConfiguration<MIS4200_Team6.DAL.MIS4200Team6Context>
     {
+
+
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\MISContext";
+
+            AutomaticMigrationDataLossAllowed = true;
+
+
         }
+
+
+
+
 
         protected override void Seed(MIS4200_Team6.DAL.MIS4200Team6Context context)
         {
