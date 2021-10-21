@@ -53,6 +53,7 @@ namespace MIS4200_Team6.Models
 
         public DateTime startDate { get; set; }
 
+        public ICollection<Recognition> recognitions { get; set; }
 
     }
 }

@@ -1,0 +1,34 @@
+﻿@model MIS4200_Team6.Models.CoreValues
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CoreValues</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CoreValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoreValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CVDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CVDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CoreValueID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
