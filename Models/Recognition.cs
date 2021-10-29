@@ -16,6 +16,7 @@ namespace MIS4200_Team6.Models
 
         public DateTime RecDate { get; set; }
 
+
         public int GiveID { get; set; }
 
         public int RecID { get; set; }

@@ -10,6 +10,8 @@ namespace MIS4200_Team6.Models
     {
 
         [Key]
+
+        [Display(Name = "Recipient")]
         public Guid ID { get; set; }
 
         [Display(Name= "First Name")]
