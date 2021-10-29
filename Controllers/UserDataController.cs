@@ -12,6 +12,8 @@ using MIS4200_Team6.Models;
 
 namespace MIS4200_Team6.Controllers
 {
+
+    [Authorize]
     public class UserDataController : Controller
     {
         private MIS4200Team6Context db = new MIS4200Team6Context();
