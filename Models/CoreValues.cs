@@ -11,6 +11,8 @@ namespace MIS4200_Team6.Models
     public class CoreValues
     {
         [Key]
+
+        [Display(Name = "Core Value")]
         public int CoreValueID { get; set; }
 
         public string CoreValue { get; set; }
