@@ -99,6 +99,10 @@ namespace MIS4200_Team6.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userData.ID = memberID;
                 db.Entry(userData).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
