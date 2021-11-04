@@ -58,7 +58,7 @@ namespace MIS4200_Team6.Controllers
             {
                 db.recognitions.Add(recognition);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("successfulRec");
             }
 
             ViewBag.CoreValueID = new SelectList(db.corevalues, "CoreValueID", "CoreValue", recognition.CoreValueID);
