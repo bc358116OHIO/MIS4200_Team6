@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 using MIS4200_Team6.DAL;
 using MIS4200_Team6.Models;
 
-namespace MIS4200_Team6.Controllers
+namespace MIS4200_Team6.Controllers 
 {
 
     [Authorize]

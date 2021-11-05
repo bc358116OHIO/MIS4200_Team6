@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "My Profile";
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = User.Identity.GetUserId + "'s" + "Profile";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
