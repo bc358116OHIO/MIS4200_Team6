@@ -12,18 +12,18 @@ using MIS4200_Team6.Models;
 namespace MIS4200_Team6.Controllers
 {
     [Authorize]
-    public class RecognitionsController : Controller
+    public class GamificationController : Controller
     {
         private MIS4200Team6Context db = new MIS4200Team6Context();
 
-        // GET: Recognitions
+        // GET: Gamification
         public ActionResult Index()
         {
             var recognitions = db.recognitions.Include(r => r.userdatasGive).Include(r => r.userdatasRec);
             return View(recognitions.ToList());
         }
 
-        // GET: Recognitions/Details/5
+        // GET: Gamification/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,7 +38,7 @@ namespace MIS4200_Team6.Controllers
             return View(recognition);
         }
 
-        // GET: Recognitions/Create
+        // GET: Gamification/Create
         public ActionResult Create()
         {
             ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName");
@@ -46,7 +46,7 @@ namespace MIS4200_Team6.Controllers
             return View();
         }
 
-        // POST: Recognitions/Create
+        // POST: Gamification/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -57,7 +57,7 @@ namespace MIS4200_Team6.Controllers
             {
                 db.recognitions.Add(recognition);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
 
             ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);
@@ -65,7 +65,7 @@ namespace MIS4200_Team6.Controllers
             return View(recognition);
         }
 
-        // GET: Recognitions/Edit/5
+        // GET: Gamification/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,7 +82,7 @@ namespace MIS4200_Team6.Controllers
             return View(recognition);
         }
 
-        // POST: Recognitions/Edit/5
+        // POST: Gamification/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -100,7 +100,7 @@ namespace MIS4200_Team6.Controllers
             return View(recognition);
         }
 
-        // GET: Recognitions/Delete/5
+        // GET: Gamification/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,7 +115,7 @@ namespace MIS4200_Team6.Controllers
             return View(recognition);
         }
 
-        // POST: Recognitions/Delete/5
+        // POST: Gamification/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

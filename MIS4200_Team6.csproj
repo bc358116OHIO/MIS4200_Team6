@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CoreValuesController.cs" />
+    <Compile Include="Controllers\GamificationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecognitionsController.cs" />
@@ -259,6 +260,11 @@
     <Content Include="Views\CoreValues\Edit.cshtml" />
     <Content Include="Views\CoreValues\Index.cshtml" />
     <Content Include="Views\UserData\duplicateUser.cshtml" />
+    <Content Include="Views\Gamification\Create.cshtml" />
+    <Content Include="Views\Gamification\Delete.cshtml" />
+    <Content Include="Views\Gamification\Details.cshtml" />
+    <Content Include="Views\Gamification\Edit.cshtml" />
+    <Content Include="Views\Gamification\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
