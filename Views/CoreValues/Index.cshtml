@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MIS4200_Team6.Models.CoreValues>
+
+@{
+    ViewBag.Title = "Core Values";
+}
+
+<h2>Centric's 7 Core Values</h2>
+
+<p>
+    
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Core Value
+        </th>
+        <th>
+           Description
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CVD)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.CVID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CVID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CVID })*@
+        </td>
+    </tr>
+}
+
+</table>

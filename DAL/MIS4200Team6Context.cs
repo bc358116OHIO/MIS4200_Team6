@@ -23,7 +23,6 @@ namespace MIS4200_Team6.DAL
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();  // note: this is all one line!
         }
 
-
-
+        public System.Data.Entity.DbSet<MIS4200_Team6.Models.CoreValues> CoreValues { get; set; }
     }
 }
