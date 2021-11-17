@@ -168,7 +168,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CoreValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecognitionsController.cs" />
@@ -179,7 +178,6 @@
     </Compile>
     <Compile Include="Migrations\MISContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CoreValues.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Recognition.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -248,18 +246,11 @@
     <Content Include="Views\UserData\Details.cshtml" />
     <Content Include="Views\UserData\Edit.cshtml" />
     <Content Include="Views\UserData\Index.cshtml" />
-    <Content Include="Views\UserData\duplicateUser.cshtml" />
-    <Content Include="Views\CoreValues\Create.cshtml" />
-    <Content Include="Views\CoreValues\Delete.cshtml" />
-    <Content Include="Views\CoreValues\Details.cshtml" />
-    <Content Include="Views\CoreValues\Edit.cshtml" />
-    <Content Include="Views\CoreValues\Index.cshtml" />
     <Content Include="Views\Recognitions\Create.cshtml" />
     <Content Include="Views\Recognitions\Delete.cshtml" />
     <Content Include="Views\Recognitions\Details.cshtml" />
     <Content Include="Views\Recognitions\Edit.cshtml" />
     <Content Include="Views\Recognitions\Index.cshtml" />
-    <Content Include="Views\Recognitions\SuccessfulRec.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,14 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using MIS4200_Team6.DAL;
 using MIS4200_Team6.Models;
 
 namespace MIS4200_Team6.Controllers
 {
-
-    [Authorize]
     public class UserDataController : Controller
     {
         private MIS4200Team6Context db = new MIS4200Team6Context();
@@ -21,7 +18,7 @@ namespace MIS4200_Team6.Controllers
         // GET: UserData
         public ActionResult Index()
         {
-            return View(db.UserDatas.ToList());
+            return View(db.userdatas.ToList());
         }
 
         // GET: UserData/Details/5
@@ -31,7 +28,7 @@ namespace MIS4200_Team6.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserData userData = db.UserDatas.Find(id);
+            UserData userData = db.userdatas.Find(id);
             if (userData == null)
             {
                 return HttpNotFound();
@@ -54,21 +51,9 @@ namespace MIS4200_Team6.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid memberID;
-                Guid.TryParse(User.Identity.GetUserId(), out memberID);
-                userData.ID = memberID;
-                //userData.ID = Guid.NewGuid();
-                db.UserDatas.Add(userData);
-                try
-                {
+                userData.ID = Guid.NewGuid();
+                db.userdatas.Add(userData);
                 db.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    return View("duplicateUser");
-                    
-                }
-               
                 return RedirectToAction("Index");
             }
 
@@ -82,7 +67,7 @@ namespace MIS4200_Team6.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserData userData = db.UserDatas.Find(id);
+            UserData userData = db.userdatas.Find(id);
             if (userData == null)
             {
                 return HttpNotFound();
@@ -99,10 +84,6 @@ namespace MIS4200_Team6.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                Guid memberID;
-                Guid.TryParse(User.Identity.GetUserId(), out memberID);
-                userData.ID = memberID;
                 db.Entry(userData).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,7 +98,7 @@ namespace MIS4200_Team6.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserData userData = db.UserDatas.Find(id);
+            UserData userData = db.userdatas.Find(id);
             if (userData == null)
             {
                 return HttpNotFound();
@@ -130,8 +111,8 @@ namespace MIS4200_Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            UserData userData = db.UserDatas.Find(id);
-            db.UserDatas.Remove(userData);
+            UserData userData = db.userdatas.Find(id);
+            db.userdatas.Remove(userData);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

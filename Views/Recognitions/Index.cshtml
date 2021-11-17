@@ -12,19 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.corevalues.CoreValue)
+            @Html.DisplayNameFor(model => model.userdatasGive.firstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.userdatas.fullName)
+            @Html.DisplayNameFor(model => model.userdatasRec.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RecDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GiveID)
+            @Html.DisplayNameFor(model => model.award)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RecID)
+            @Html.DisplayNameFor(model => model.CoreValueExtra)
         </th>
         <th></th>
     </tr>
@@ -32,19 +35,22 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.corevalues.CoreValue)
+            @Html.DisplayFor(modelItem => item.userdatasGive.firstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.userdatas.fullName)
+            @Html.DisplayFor(modelItem => item.userdatasRec.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RecDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GiveID)
+            @Html.DisplayFor(modelItem => item.award)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RecID)
+            @Html.DisplayFor(modelItem => item.CoreValueExtra)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |

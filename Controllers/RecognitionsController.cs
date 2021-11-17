@@ -6,14 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using MIS4200_Team6.DAL;
 using MIS4200_Team6.Models;
 
-namespace MIS4200_Team6.Controllers 
+namespace MIS4200_Team6.Controllers
 {
-
-    [Authorize]
     public class RecognitionsController : Controller
     {
         private MIS4200Team6Context db = new MIS4200Team6Context();
@@ -21,7 +18,7 @@ namespace MIS4200_Team6.Controllers
         // GET: Recognitions
         public ActionResult Index()
         {
-            var recognitions = db.recognitions.Include(r => r.corevalues).Include(r => r.userdatas);
+            var recognitions = db.recognitions.Include(r => r.userdatasGive).Include(r => r.userdatasRec);
             return View(recognitions.ToList());
         }
 
@@ -43,8 +40,8 @@ namespace MIS4200_Team6.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
-            ViewBag.CoreValueID = new SelectList(db.corevalues, "CoreValueID", "CoreValue");
-            ViewBag.ID = new SelectList(db.UserDatas, "ID", "firstName");
+            ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName");
+            ViewBag.RecID = new SelectList(db.userdatas, "ID", "firstName");
             return View();
         }
 
@@ -53,17 +50,17 @@ namespace MIS4200_Team6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecognitionID,CoreValueID,ID,RecDate,GiveID,RecID")] Recognition recognition)
+        public ActionResult Create([Bind(Include = "RecognitionID,ID,RecDate,GiveID,RecID,award,CoreValueExtra")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
                 db.recognitions.Add(recognition);
                 db.SaveChanges();
-                return View("successfulRec");
+                return RedirectToAction("Index");
             }
 
-            ViewBag.CoreValueID = new SelectList(db.corevalues, "CoreValueID", "CoreValue", recognition.CoreValueID);
-            ViewBag.ID = new SelectList(db.UserDatas, "ID", "firstName", recognition.ID);
+            ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);
+            ViewBag.RecID = new SelectList(db.userdatas, "ID", "firstName", recognition.RecID);
             return View(recognition);
         }
 
@@ -79,8 +76,8 @@ namespace MIS4200_Team6.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CoreValueID = new SelectList(db.corevalues, "CoreValueID", "CoreValue", recognition.CoreValueID);
-            ViewBag.ID = new SelectList(db.UserDatas, "ID", "firstName", recognition.ID);
+            ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);
+            ViewBag.RecID = new SelectList(db.userdatas, "ID", "firstName", recognition.RecID);
             return View(recognition);
         }
 
@@ -89,7 +86,7 @@ namespace MIS4200_Team6.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RecognitionID,CoreValueID,ID,RecDate,GiveID,RecID")] Recognition recognition)
+        public ActionResult Edit([Bind(Include = "RecognitionID,ID,RecDate,GiveID,RecID,award,CoreValueExtra")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
@@ -97,8 +94,8 @@ namespace MIS4200_Team6.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CoreValueID = new SelectList(db.corevalues, "CoreValueID", "CoreValue", recognition.CoreValueID);
-            ViewBag.ID = new SelectList(db.UserDatas, "ID", "firstName", recognition.ID);
+            ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);
+            ViewBag.RecID = new SelectList(db.userdatas, "ID", "firstName", recognition.RecID);
             return View(recognition);
         }
 

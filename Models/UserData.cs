@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,6 @@ namespace MIS4200_Team6.Models
     {
 
         [Key]
-
         [Display(Name = "Recipient")]
         public Guid ID { get; set; }
 
@@ -55,7 +55,11 @@ namespace MIS4200_Team6.Models
 
         public DateTime startDate { get; set; }
 
-        public ICollection<Recognition> recognitions { get; set; }
+        [ForeignKey("RecID")]
+        public ICollection<Recognition> recognitionsRec { get; set; }
+
+        [ForeignKey("GiveID")]
+        public ICollection<Recognition> recognitionsGive { get; set; }
 
     }
 }

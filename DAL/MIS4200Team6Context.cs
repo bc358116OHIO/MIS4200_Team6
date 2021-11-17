@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 using MIS4200_Team6.Models;
@@ -14,10 +15,15 @@ namespace MIS4200_Team6.DAL
           
         }
 
-        public System.Data.Entity.DbSet<MIS4200_Team6.Models.UserData> UserDatas { get; set; }
+        public System.Data.Entity.DbSet<MIS4200_Team6.Models.UserData> userdatas { get; set; }
         public DbSet<Recognition> recognitions { get; set; }
 
-        public DbSet<CoreValues> corevalues { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();  // note: this is all one line!
+        }
+
+
 
     }
 }
