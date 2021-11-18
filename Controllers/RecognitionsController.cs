@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MIS4200_Team6.DAL;
 using MIS4200_Team6.Models;
 
@@ -53,11 +54,27 @@ namespace MIS4200_Team6.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RecognitionID,ID,RecDate,GiveID,RecID,award,CoreValueExtra")] Recognition recognition)
         {
-            if (ModelState.IsValid)
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (memberID == recognition.RecID)
             {
-                db.recognitions.Add(recognition);
-                db.SaveChanges();
-                return View("successfulRec");
+                return View("badRec");
+
+            }
+
+            else
+            {
+                {
+
+                    if (ModelState.IsValid)
+                    {
+                        db.recognitions.Add(recognition);
+                        db.SaveChanges();
+                        return View("successfulRec");
+
+                    }
+
+                }
             }
 
             ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);

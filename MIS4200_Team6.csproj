@@ -266,6 +266,7 @@
     <Content Include="Views\Gamification\Edit.cshtml" />
     <Content Include="Views\Gamification\Index.cshtml" />
     <Content Include="Views\Recognitions\successfulRec.cshtml" />
+    <Content Include="Views\Recognitions\badRec.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
