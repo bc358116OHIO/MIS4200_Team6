@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<MIS4200_Team6.Models.Recognition>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Gamification";
 }
 
-<h2>Index</h2>
+<h2>Gamification</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -35,13 +35,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.userdatasGive.firstName)
+            @*@Html.DisplayFor(modelItem => item.userdatasGive.firstName)*@
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.userdatasRec.firstName)
+            @Html.DisplayFor(modelItem => item.userdatasRec.fullName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ID)
+            @*@Html.DisplayFor(modelItem => item.ID)*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RecDate)
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.CoreValueExtra)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
             @Html.ActionLink("Details", "Details", new { id=item.RecognitionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecognitionID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecognitionID })*@
         </td>
     </tr>
 }
