@@ -57,12 +57,12 @@ namespace MIS4200_Team6.Controllers
             {
                 db.recognitions.Add(recognition);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return View("successfulRec");
             }
 
             ViewBag.GiveID = new SelectList(db.userdatas, "ID", "firstName", recognition.GiveID);
             ViewBag.RecID = new SelectList(db.userdatas, "ID", "firstName", recognition.RecID);
-            return View(recognition);
+            return View("successfulRec");
         }
 
         // GET: Recognitions/Edit/5
